@@ -1,4 +1,4 @@
-# 🐛 Bug Hunter Toolkit
+# Bug Hunter Toolkit
 ## Professional Bug Bounty & Security Testing Framework
 
 **Created by:** [rikixz](https://github.com/blaxkmiradev) | [blaxkmiradev](https://github.com/blaxkmiradev)
