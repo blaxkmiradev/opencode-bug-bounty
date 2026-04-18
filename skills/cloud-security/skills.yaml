@@ -1,5 +1,5 @@
 name: cloud-security
-description: Cloud security — AWS, GCP, Azure, S3 buckets, IAM, cloud metadata SSRF, Kubernetes, Docker
+description: Cloud security assessment — AWS, GCP, Azure, S3 buckets, IAM enumeration, cloud metadata SSRF, Kubernetes
 trigger:
   - cloud security
   - AWS security
@@ -11,5 +11,10 @@ trigger:
   - K8s
   - cloud pentest
   - S3 vulnerability
-author: bug-hunter
-version: 1.0.0
+  - check AWS
+  - check cloud
+commands:
+  s3: python tools/python/s3_scanner.py
+  subdomain: python tools/python/subdomain_enum.py
+author: rikixz
+version: 2.0.0

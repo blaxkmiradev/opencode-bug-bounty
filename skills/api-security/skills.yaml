@@ -1,5 +1,5 @@
 name: api-security
-description: API security — REST API, GraphQL, gRPC, WebSocket, rate limiting, IDOR, API fuzzing
+description: API security — REST API, GraphQL, gRPC, WebSocket, rate limiting, IDOR, BOLA
 trigger:
   - API security
   - API testing
@@ -11,5 +11,10 @@ trigger:
   - endpoint testing
   - BOLA
   - Broken Object Level Authorization
-author: bug-hunter
-version: 1.0.0
+  - test API
+commands:
+  graphql: python tools/python/graphql_scanner.py
+  api: python tools/python/test-api.ps1
+  oauth: python tools/python/oauth_scanner.py
+author: rikixz
+version: 2.0.0

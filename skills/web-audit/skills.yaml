@@ -4,12 +4,24 @@ trigger:
   - web audit
   - code review
   - source audit
+  - source code review
   - API security
+  - API testing
   - authentication bypass
   - authorization
   - business logic
   - web security audit
   - security audit
   - penetration test
-author: bug-hunter
-version: 1.0.0
+  - pentest
+  - audit code
+  - review source
+commands:
+  fingerprint: python tools/python/fingerprint.py
+  dirs: python tools/python/dir_scanner.py
+  param: python tools/python/parameter_scanner.py
+  jwt: python tools/python/jwt_analyzer.py
+  graphql: python tools/python/graphql_scanner.py
+  secret: python tools/python/secret_scanner.py
+author: rikixz
+version: 2.0.0

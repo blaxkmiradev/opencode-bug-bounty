@@ -1,5 +1,5 @@
 name: report-writing
-description: Report writing — templates, CVSS calculation, impact analysis, triage response, report formatting
+description: Report writing — templates, CVSS calculation, impact analysis, triage response, report generation
 trigger:
   - report writing
   - write report
@@ -11,5 +11,10 @@ trigger:
   - 漏洞报告
   - 报告撰写
   - report template
-author: bug-hunter
-version: 1.0.0
+  - generate report
+commands:
+  report: python tools/python/generate_csv.py
+  cvss: python tools/python/cvss_calculator.py
+  cve: python tools/python/cve_finder.py
+author: rikixz
+version: 2.0.0

@@ -9,8 +9,11 @@ trigger:
   - FTP testing
   - DNS
   - SNMP
-  - VPN hacking
   - WiFi hacking
   - Wifi hack
-author: bug-hunter
-version: 1.0.0
+  - port scan
+commands:
+  port: python tools/python/nmap_scan.py
+  fast: python tools/python/fast_scanner.py
+author: rikixz
+version: 2.0.0

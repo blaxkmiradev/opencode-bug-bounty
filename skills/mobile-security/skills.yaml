@@ -1,14 +1,19 @@
 name: mobile-security
-description: Mobile app security — Android/iOS, APK analysis, Frida, certificate pinning bypass, mobile API testing
+description: Mobile app security — Android/iOS APK analysis, Frida, certificate pinning bypass, mobile API testing
 trigger:
   - mobile security
   - Android security
   - iOS security
   - APK analysis
-  - moblie hacking
+  - mobile hacking
   - Frida
   - app security
   - mobile pentest
-  - moblie app
-author: bug-hunter
-version: 1.0.0
+  - mobile app
+  - reverse APK
+  - decompile APK
+commands:
+  analyze: python tools/python/test-mobile.ps1
+  fingerprint: python tools/python/fingerprint.py
+author: rikixz
+version: 2.0.0

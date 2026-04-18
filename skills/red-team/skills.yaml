@@ -1,5 +1,5 @@
 name: red-team
-description: Red teaming — C2, persistence, lateral movement, privilege escalation, AD attacks, domain penetration
+description: Red teaming operations — C2, persistence, lateral movement, privilege escalation, AD attacks, domain penetration
 trigger:
   - red team
   - red teaming
@@ -10,5 +10,8 @@ trigger:
   - domain penetration
   - persistence
   - Active Directory
-author: bug-hunter
-version: 1.0.0
+  - pentest red team
+commands:
+  scan: python tools/python/fast_scanner.py
+author: rikixz
+version: 2.0.0

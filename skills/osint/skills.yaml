@@ -1,5 +1,5 @@
 name: osint
-description: OSINT and reconnaissance — email harvesting, social media, GitHub, Google hacking, domain research, leaks database
+description: OSINT and reconnaissance — email harvesting, social media OSINT, leaks database search, Google hacking, GitHub reconnaissance
 trigger:
   - OSINT
   - reconnaissance
@@ -11,5 +11,10 @@ trigger:
   - google hacking
   - ghdb
   - dorking
-author: bug-hunter
-version: 1.0.0
+  - find emails
+  - find information
+commands:
+  cve: python tools/python/cve_finder.py
+  subdomain: python tools/python/subdomain_enum.py
+author: rikixz
+version: 2.0.0
