@@ -1,0 +1,45 @@
+{
+  "target": "khmer24.com",
+  "timestamp": "2026-04-18T05:27:14.758320",
+  "subdomains": [
+    "www.khmer24.com -> 172.67.71.133",
+    "dev.khmer24.com -> 104.26.6.168",
+    "api.khmer24.com -> 104.26.7.168",
+    "app.khmer24.com -> 172.67.71.133",
+    "m.khmer24.com -> 104.26.7.168"
+  ],
+  "ports": [
+    "443/HTTPS",
+    "80/HTTP",
+    "8080/HTTP-Alt",
+    "8443/HTTPS-Alt"
+  ],
+  "endpoints": [],
+  "tech": {
+    "server": "cloudflare",
+    "powered": "",
+    "status": 403,
+    "cms": "Unknown"
+  },
+  "headers": {
+    "CSP": null,
+    "HSTS": "max-age=15552000; includeSubDomains; preload",
+    "X-Frame": "SAMEORIGIN",
+    "X-Content": "nosniff",
+    "Referrer": "same-origin",
+    "Permissions": null
+  },
+  "vulnerabilities": [
+    {
+      "type": "Missing Security Header",
+      "name": "Content-Security-Policy",
+      "severity": "Medium"
+    },
+    {
+      "type": "Missing Security Header",
+      "name": "Permissions-Policy",
+      "severity": "Medium"
+    }
+  ],
+  "cvss": []
+}

