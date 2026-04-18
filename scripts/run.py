@@ -96,6 +96,7 @@ def main():
     scripts = {
         'recon': lambda t: f'{tools_dir}/bug_hunter.py',
         'fast': lambda t: f'{tools_dir}/fast_scanner.py',
+        'quick': lambda t: f'{tools_dir}/fast_scanner.py',
         'subdomain': lambda t: f'{tools_dir}/subdomain_enum.py',
         'subdomain_enum': lambda t: f'{tools_dir}/subdomain_enum.py',
         'dirs': lambda t: f'{tools_dir}/dir_scanner.py',
@@ -186,6 +187,21 @@ def main():
     elif command == 'graphql':
         import subprocess
         result = subprocess.run([sys.executable, f'{tools_dir}/graphql_scanner.py', target])
+    
+    elif command == 'cve':
+        # CVE finder
+        import subprocess
+        result = subprocess.run([sys.executable, f'{tools_dir}/cve_finder.py'] + ([target] if target else []))
+    
+    elif command == 'vulnlevel':
+        # Vulnerability level scanner
+        import subprocess
+        result = subprocess.run([sys.executable, f'{tools_dir}/vuln_level.py', target])
+    
+    elif command == 'cvss':
+        # CVSS calculator
+        import subprocess
+        result = subprocess.run([sys.executable, f'{tools_dir}/cvss_calculator.py'])
     
     elif command == 'test':
         # test <type> <target>
