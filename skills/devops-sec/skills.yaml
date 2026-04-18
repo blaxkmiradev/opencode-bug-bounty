@@ -1,0 +1,19 @@
+name: devops-sec
+description: DevOps Security Skill - CI/CD and infrastructure security
+triggers:
+  - devops security
+  - ci cd security
+  - kubernetes
+  - docker
+  - cloud security
+  - infrastructure
+commands:
+  - /k8s-scan
+  - /docker-scan
+  - /ci-cd-audit
+  - /infra-sec
+  - /config-audit
+tools:
+  - k8s_scanner.py
+  - docker_scanner.py
+  - cloud_scanner.py

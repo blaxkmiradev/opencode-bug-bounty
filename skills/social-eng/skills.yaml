@@ -1,0 +1,21 @@
+name: social-eng
+description: Social Engineering Skill - OSINT and reconnaissance for phishing
+triggers:
+  - social engineering
+  - phishing
+  - osint
+  - reconnaissance
+  - email harvest
+  - whois
+  - information gathering
+commands:
+  - /osint-scan
+  - /whois-lookup
+  - /email-harvest
+  - /recon
+  - /domain-info
+tools:
+  - subdomain_enum.py
+  - dns_enumeration.py
+  - enum_users.py
+  - osint
