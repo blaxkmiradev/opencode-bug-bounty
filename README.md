@@ -1,4 +1,4 @@
-# 🐛 Bug Hunter Toolkit
+# Bug Hunter Toolkit
 ## Professional Bug Bounty & Security Testing Framework
 
 **Created by:** [rikixz](https://github.com/blaxkmiradev) | [blaxkmiradev](https://github.com/blaxkmiradev)
@@ -71,7 +71,7 @@ go install github.com/ffuf/ffuf@latest
 
 ```bash
 # Clone or download the toolkit
-git clone https://github.com/blaxkmiradev/bug-hunter.git
+git clone https://github.com/blaxkmiradev/opencode-bug-bounty.git
 
 # Install dependencies
 cd bug-hunter
@@ -974,7 +974,7 @@ MIT License - Use at your own risk.
 
 ## Support
 
-- Issues: https://github.com/blaxkmiradev/bug-hunter/issues
+- Issues: https://github.com/blaxkmiradev/opencode-bug-bounty/issues
 - Stars: ⭐⭐⭐⭐⭐ (If you find it useful!)
 
 ---
