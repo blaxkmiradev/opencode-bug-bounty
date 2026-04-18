@@ -71,7 +71,7 @@ go install github.com/ffuf/ffuf@latest
 
 ```bash
 # Clone or download the toolkit
-git clone https://github.com/blaxkmiradev/bug-hunter.git
+git clone https://github.com/blaxkmiradev/opencode-bug-bounty.git
 
 # Install dependencies
 cd bug-hunter
