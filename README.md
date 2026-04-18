@@ -974,7 +974,7 @@ MIT License - Use at your own risk.
 
 ## Support
 
-- Issues: https://github.com/blaxkmiradev/bug-hunter/issues
+- Issues: https://github.com/blaxkmiradev/opencode-bug-bounty/issues
 - Stars: ⭐⭐⭐⭐⭐ (If you find it useful!)
 
 ---
