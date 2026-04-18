@@ -1,0 +1,14 @@
+name: red-team
+description: Red teaming — C2, persistence, lateral movement, privilege escalation, AD attacks, domain penetration
+trigger:
+  - red team
+  - red teaming
+  - C2
+  - lateral movement
+  - privilege escalation
+  - AD attack
+  - domain penetration
+  - persistence
+  - Active Directory
+author: bug-hunter
+version: 1.0.0

@@ -1,0 +1,15 @@
+name: web-audit
+description: Web application security audit — source code review, API testing, authentication bypass, authorization flaws, business logic
+trigger:
+  - web audit
+  - code review
+  - source audit
+  - API security
+  - authentication bypass
+  - authorization
+  - business logic
+  - web security audit
+  - security audit
+  - penetration test
+author: bug-hunter
+version: 1.0.0

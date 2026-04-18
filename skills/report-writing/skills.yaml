@@ -1,0 +1,15 @@
+name: report-writing
+description: Report writing — templates, CVSS calculation, impact analysis, triage response, report formatting
+trigger:
+  - report writing
+  - write report
+  - bug report
+  - cvss
+  - severity
+  - impact assessment
+  - triage response
+  - 漏洞报告
+  - 报告撰写
+  - report template
+author: bug-hunter
+version: 1.0.0

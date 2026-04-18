@@ -1,0 +1,29 @@
+name: bug-bounty
+description: Complete bug bounty workflow — recon, vulnerability hunting (IDOR, SSRF, XSS, auth bypass, SQLi, XXE, SSTI, LLM/AI security), bug chaining, and reporting
+trigger:
+  - 漏洞赏金
+  - 安全测试
+  - 渗透测试
+  - 漏洞挖掘
+  - 信息收集
+  - 子域名枚举
+  - XSS测试
+  - SQL注入
+  - SSRF
+  - 安全审计
+  - 漏洞报告
+  - bug bounty
+  - recon
+  - pentest
+  - vulnerability hunting
+  - vulnerability
+  - hackerone
+  - bugcrowd
+  - IDOR
+  - SSRF
+  - XSS
+  - SQLi
+  - pentesting
+  - ethical hacking
+author: bug-hunter
+version: 1.0.0

@@ -1,0 +1,15 @@
+name: osint
+description: OSINT and reconnaissance — email harvesting, social media, GitHub, Google hacking, domain research, leaks database
+trigger:
+  - OSINT
+  - reconnaissance
+  - email harvesting
+  - social media
+  - domain research
+  - GitHub
+  - information gathering
+  - google hacking
+  - ghdb
+  - dorking
+author: bug-hunter
+version: 1.0.0

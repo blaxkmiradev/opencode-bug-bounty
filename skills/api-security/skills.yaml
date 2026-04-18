@@ -1,0 +1,15 @@
+name: api-security
+description: API security — REST API, GraphQL, gRPC, WebSocket, rate limiting, IDOR, API fuzzing
+trigger:
+  - API security
+  - API testing
+  - REST API
+  - GraphQL
+  - gRPC
+  - WebSocket
+  - API fuzzing
+  - endpoint testing
+  - BOLA
+  - Broken Object Level Authorization
+author: bug-hunter
+version: 1.0.0

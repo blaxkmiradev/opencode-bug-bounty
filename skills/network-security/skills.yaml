@@ -1,0 +1,16 @@
+name: network-security
+description: Network penetration testing — port scanning, service enumeration, SMB, FTP, SSH, DNS, SNMP, WiFi hacking
+trigger:
+  - network security
+  - network pentest
+  - port scanning
+  - service enumeration
+  - SMB testing
+  - FTP testing
+  - DNS
+  - SNMP
+  - VPN hacking
+  - WiFi hacking
+  - Wifi hack
+author: bug-hunter
+version: 1.0.0

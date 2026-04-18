@@ -1,0 +1,80 @@
+name: bug-hunter-agent
+description: AI agent specialized in bug bounty hunting — performs recon, vulnerability discovery, exploitation, and report generation autonomously
+trigger:
+  - hunt
+  - find bugs
+  - test vulnerabilities
+  - audit
+  - security assessment
+  - 漏洞猎杀
+  - 挖掘漏洞
+  - 安全审计
+capabilities:
+  subdomain_enumeration: true
+  live_host_detection: true
+  vulnerability_scanning: true
+  idor_testing: true
+  ssrf_testing: true
+  xss_testing: true
+  sqli_testing: true
+  ssti_testing: true
+  ai_luhn_security: true
+  bug_chaining: true
+  report_generation: true
+tools:
+  - name: recon
+    description: Reconnaissance automation
+    command: recon
+  - name: scan
+    description: Vulnerability scanning
+    command: scan
+  - name: test-idor
+    description: IDOR testing
+    command: test-idor
+  - name: test-ssrf
+    description: SSRF testing
+    command: test-ssrf
+  - name: test-xss
+    description: XSS testing
+    command: test-xss
+  - name: test-sqli
+    description: SQL injection testing
+    command: test-sqli
+  - name: test-ssti
+    description: SSTI testing
+    command: test-ssti
+  - name: test-ai
+    description: AI/LLM security testing
+    command: test-ai
+  - name: chain
+    description: Bug chaining
+    command: chain
+  - name: report
+    description: Generate report
+    command: report
+workflow: |
+  Phase 1: Recon
+  1. Enumerate subdomains
+  2. Detect live hosts
+  3. Collect URLs
+  4. Fingerprint tech stack
+  
+  Phase 2: Learn
+  1. Read disclosed reports
+  2. Analyze changelog
+  3. Understand attack surface
+  
+  Phase 3: Hunt
+  1. One vulnerability class at a time
+  2. Test all variants
+  3. Chain findings
+  
+  Phase 4: Validate
+  1. Run 7-Question Gate
+  2. Verify impact
+  
+  Phase 5: Report
+  1. Generate structured report
+  2. Calculate CVSS
+author: bug-hunter
+version: 1.0.0

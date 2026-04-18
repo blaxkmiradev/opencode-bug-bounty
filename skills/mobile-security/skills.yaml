@@ -1,0 +1,14 @@
+name: mobile-security
+description: Mobile app security — Android/iOS, APK analysis, Frida, certificate pinning bypass, mobile API testing
+trigger:
+  - mobile security
+  - Android security
+  - iOS security
+  - APK analysis
+  - moblie hacking
+  - Frida
+  - app security
+  - mobile pentest
+  - moblie app
+author: bug-hunter
+version: 1.0.0
