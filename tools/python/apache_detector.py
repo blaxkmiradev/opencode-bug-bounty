@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-OAuth Vulnerability Scanner
-Tests OAuth flows for vulnerabilities
+Apache Misconfiguration Scanner
+Detects common Apache misconfigurations
 """
 
 import requests
@@ -10,31 +10,34 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def scan(target):
-    print(f"[*] OAuth Vulnerability Scanner - {target}")
+    print(f"[*] Apache Misconfiguration Scanner - {target}")
     print("="*50)
     
     if not target.startswith(('http://', 'https://')):
         target = 'https://' + target
     
     found = []
-    oauth_paths = ['/oauth/authorize', '/oauth/token', '/oauth/revoke', '/api/oauth']
+    apache_paths = ['/server-status', '/server-info', '/.htaccess', '/.htpasswd']
     
-    for path in oauth_paths:
+    for path in apache_paths:
         try:
             r = requests.get(target + path, timeout=10, verify=False)
-            if r.status_code != 404:
-                print(f"[?] OAuth: {path}")
+            if r.status_code == 200:
+                print(f"[!] Exposed: {path}")
                 found.append(path)
         except:
             pass
     
     print("\n" + "="*50)
-    print(f"[*] Found {len(found)} OAuth endpoints")
+    if found:
+        print(f"[!] Found {len(found)} issues")
+    else:
+        print("[*] No Apache misconfigurations")
     
     return found
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='OAuth Scanner')
+    parser = argparse.ArgumentParser(description='Apache Scanner')
     parser.add_argument('target', help='Target URL')
     args = parser.parse_args()
     scan(args.target)
