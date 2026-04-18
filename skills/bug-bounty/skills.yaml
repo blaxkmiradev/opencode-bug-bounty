@@ -1,5 +1,5 @@
 name: bug-bounty
-description: Complete bug bounty workflow — recon, vulnerability hunting (IDOR, SSRF, XSS, SQLi), bug chaining, and reporting. 漏洞赏金、安全测试
+description: Complete bug bounty workflow — recon, vulnerability hunting (IDOR, SSRF, XSS, SQLi), bug chaining, and reporting
 trigger:
   - 漏洞赏金
   - 安全测试
@@ -32,17 +32,23 @@ trigger:
   - scan for vulnerabilities
   - do recon
   - find subdomains
+  - full scan
+  - deep scan
 commands:
-  recon: python tools/python/fast_scanner.py
-  scan: python tools/python/web_scanner.py
+  quick-scan: python tools/python/fast_scanner.py
+  full-scan: python tools/python/full_scan.py
+  pro-scan: python tools/python/pro_scanner.py
   subdomain: python tools/python/subdomain_enum.py
+  port-scan: python tools/python/nmap_scan.py
   xss: python tools/python/xss_scanner.py
   sqli: python tools/python/sqli_scanner.py
   ssrf: python tools/python/ssrf_scanner.py
   headers: python tools/python/header_analyzer.py
   cors: python tools/python/cors_scanner.py
   graphql: python tools/python/graphql_scanner.py
+  wp-scan: python tools/python/wp_scanner.py
   report: python tools/python/generate_csv.py
   cvss: python tools/python/cvss_calculator.py
+  cve: python tools/python/cve_finder.py
 author: rikixz
-version: 2.0.0
+version: 3.0.0
