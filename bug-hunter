@@ -1,0 +1,70 @@
+#!/bin/bash
+# Bug Hunter Toolkit - Main Launcher (Bash)
+# Save in PATH: chmod +x bug-hunter && sudo ln -sf $(pwd)/bug-hunter /usr/local/bin/bug-hunter
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TOOLS_DIR="$SCRIPT_DIR/tools/python"
+
+TOOL="$1"
+TARGET="$2"
+
+case "$TOOL" in
+    ""|-h|--help)
+        echo "Bug Hunter Toolkit - Help"
+        echo "======================"
+        echo ""
+        echo "Usage: $0 [tool] [target]"
+        echo ""
+        echo "Tools:"
+        echo "  full      - Full security scan"
+        echo "  quick     - Quick scan"
+        echo "  pro       - Professional scan"
+        echo "  xss       - XSS scanner"
+        echo "  sqli      - SQLi scanner"
+        echo "  rce       - RCE scanner"
+        echo "  ssrf      - SSRF scanner"
+        echo "  lfi       - LFI scanner"
+        echo "  xxe       - XXE scanner"
+        echo "  idor      - IDOR scanner"
+        echo "  ssti      - SSTI scanner"
+        echo "  waf       - WAF detector"
+        echo "  headers   - Security headers"
+        echo "  wp        - WordPress scanner"
+        echo "  subdomain - Subdomain enum"
+        echo "  git       - Git scanner"
+        echo "  backup    - Backup finder"
+        echo "  cors      - CORS scanner"
+        echo "  jwt       - JWT analyzer"
+        echo "  sensitive - Sensitive data"
+        echo ""
+        echo "Examples:"
+        echo "  $0 full target.com"
+        echo "  $0 xss https://target.com"
+        echo "  $0 waf target.com"
+        echo "  $0 subdomain target.com"
+        ;;
+    list)
+        echo "Available Tools:"
+        ls "$TOOLS_DIR"/*.py 2>/dev/null | xargs -n1 basename | sed 's/\.py$//'
+        ;;
+    *)
+        TOOL_FILE=""
+        # Find tool file
+        if [ -f "$TOOLS_DIR/$TOOL.py" ]; then
+            TOOL_FILE="$TOOLS_DIR/$TOOL.py"
+        elif [ -f "$TOOLS_DIR/${TOOL}_scanner.py" ]; then
+            TOOL_FILE="$TOOLS_DIR/${TOOL}_scanner.py"
+        else
+            echo "[!] Tool not found: $TOOL"
+            exit 1
+        fi
+
+        echo "================================"
+        echo "  Bug Hunter Toolkit"
+        echo "  Tool: $TOOL  Target: $TARGET"
+        echo "================================"
+        echo ""
+
+        python3 "$TOOL_FILE" "$TARGET"
+        ;;
+esac
